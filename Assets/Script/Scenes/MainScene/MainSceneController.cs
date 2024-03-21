@@ -12,11 +12,6 @@ public class MainSceneController : MonoBehaviour
 
     private void Start()
     {
-        if (GameManager.SaveManager.SaveFileCheck())
-            ContinueBox.SetActive(true);
-        else
-            ContinueBox.SetActive(false);
-
         if (GameManager.OutGameData.IsPhanuelClear() && GameManager.OutGameData.GetIsOnMainTooltipForPhanuel() == false)
         {
             GameManager.OutGameData.SetIsOnMainTooltipForPhanuel(true);
@@ -30,6 +25,25 @@ public class MainSceneController : MonoBehaviour
             GameManager.OutGameData.SaveData();
             GameManager.UI.ShowPopup<UI_SystemInfo>().Init("HorusClear", "HorusTooltip");
         }
+
+        #region 데모 전용
+        if (GameManager.OutGameData.GetCutSceneData(CutSceneType.Phanuel_Enter) == true)
+        {
+            GameManager.OutGameData.SetTutorialClear(false);
+            GameManager.OutGameData.SetCutSceneData(CutSceneType.Main, false);
+            GameManager.OutGameData.SetCutSceneData(CutSceneType.Tutorial, false);
+            GameManager.OutGameData.SetCutSceneData(CutSceneType.LahelRea_Enter, false);
+            GameManager.OutGameData.SetCutSceneData(CutSceneType.Phanuel_Enter, false);
+            GameManager.OutGameData.SaveData();
+            GameManager.SaveManager.DeleteSaveData();
+            GameManager.UI.ShowPopup<UI_SystemInfo>().Init("DemoClear", "DemoClearToolTip");
+        }
+        #endregion
+
+        if (GameManager.SaveManager.SaveFileCheck())
+            ContinueBox.SetActive(true);
+        else
+            ContinueBox.SetActive(false);
     }
 
     public void StartButton()

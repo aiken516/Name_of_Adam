@@ -43,6 +43,14 @@ MonoBehaviour:
     m_Key: UpgradeMax
     m_Metadata:
       m_Items: []
+  - m_Id: 2873253520273408
+    m_Key: DemoClear
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2873271023104000
+    m_Key: DemoClearToolTip
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

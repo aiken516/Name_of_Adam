@@ -4,12 +4,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Localization.Settings;
+using static UnityEditor.Progress;
 
 //NPC타락퀘스트 & 진척도 & 전당 유닛 등의 인자를 저장 & 불러오는 기능
 
 [Serializable]
 public class OutGameData
 {
+    public string Version;                      // 데이터 버전
     public int ProgressCoin;                 // 진척도 코인
     public List<ProgressItem> ProgressItems; // 진척도 상점의 상품들
     public List<HallUnit> HallUnit;          // 전당 유닛
@@ -132,6 +134,7 @@ public class OutGameDataContainer : MonoBehaviour
         // Resources폴더 안에 있는 데이터를 복사하여 저장
         TextAsset text = GameManager.Resource.Load<TextAsset>("Data/OutGameData");
         _data = JsonUtility.FromJson<OutGameData>(text.text);
+        _data.Version = Application.version;
 
         ReSetOption();
         SaveData();
@@ -240,6 +243,8 @@ public class OutGameDataContainer : MonoBehaviour
     public bool IsHorusClear() => _data.HorusClear;
 
     public bool IsTutorialClear() => _data.TutorialClear;
+
+    public bool SetTutorialClear(bool isClear) => _data.TutorialClear = isClear; 
 
     public void SetNPCQuest()
     {
