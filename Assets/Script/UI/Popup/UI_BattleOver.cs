@@ -71,7 +71,20 @@ public class UI_BattleOver : UI_Scene
         }
         else if (_result == "elite win")
         {
-            if(GameManager.Data.Map.GetCurrentStage().Name == StageName.BossBattle)
+            #region 데모 전용
+            StageData stageData = GameManager.Data.Map.GetCurrentStage();
+
+            if (stageData.StageLevel == 90 && stageData.StageID == 2)
+            {
+                BattleOverDestroy();
+                GameObject.Find("@UI_Root").transform.Find("UI_ProgressSummary").gameObject.SetActive(true);
+                GameObject.Find("Result List").GetComponent<UI_ProgressSummary>().Title.text = "Victory";
+                GameManager.OutGameData.SetCutSceneData(CutSceneType.Phanuel_Enter, true);
+                return;
+            }
+            #endregion
+
+            if (GameManager.Data.Map.GetCurrentStage().Name == StageName.BossBattle)
             {
                 BattleOverDestroy();
                 GameObject.Find("@UI_Root").transform.Find("UI_ProgressSummary").gameObject.SetActive(true);
