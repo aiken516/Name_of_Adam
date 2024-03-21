@@ -27,6 +27,19 @@ MonoBehaviour:
       you sure you want to abandon it and start a new journey?'
     m_Metadata:
       m_Items: []
+  - m_Id: 2873271023104000
+    m_Localized: "\u203B \uC6B0\uB9AC \uAC8C\uC784\uC744 \uD50C\uB808\uC774 \uD574\uC8FC\uC154\uC11C
+      \uAC10\uC0AC\uD569\uB2C8\uB2E4! "
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2873253520273408
+    m_Localized: 'You are currently playing the demo version.
+
+
+      If you desire
+      more content and features, please check out the full version.'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

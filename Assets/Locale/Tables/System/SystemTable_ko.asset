@@ -62,6 +62,17 @@ MonoBehaviour:
       \uD30C\uAD34\uD558\uACE0 \uB2E4\uB978 \uAC15\uD654\uB97C \uC120\uD0DD\uD558\uC2DC\uACA0\uC2B5\uB2C8\uAE4C?"
     m_Metadata:
       m_Items: []
+  - m_Id: 2873271023104000
+    m_Localized: "\u203B Thank you for playing our game!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2873253520273408
+    m_Localized: "\uD604\uC7AC \uB370\uBAA8 \uBC84\uC804\uC744 \uD50C\uB808\uC774\uD558\uACE0
+      \uACC4\uC2ED\uB2C8\uB2E4.\n\r\n\uB354 \uB9CE\uC740 \uCF58\uD150\uCE20\uC640
+      \uAE30\uB2A5\uC744 \uC6D0\uD558\uC2E0\uB2E4\uBA74 \uC815\uC2DD \uBC84\uC804\uC744
+      \uD655\uC778\uD574\uC8FC\uC138\uC694."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

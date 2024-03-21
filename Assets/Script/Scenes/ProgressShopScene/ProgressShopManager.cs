@@ -83,6 +83,14 @@ public class ProgressShopManager : MonoBehaviour
 
     public void OnBuyBtnClick()
     {
+        #region Demo Àü¿ë
+        if (selectedID == 14)
+        {
+            GameManager.UI.ShowPopup<UI_SystemInfo>().Init("DemoClear", "DemoClearToolTip");
+            return;
+        }
+        #endregion
+
         if (!GameManager.OutGameData.GetBuyable(selectedID) || GameManager.OutGameData.GetProgressCoin() < GameManager.OutGameData.GetProgressItem(selectedID).Cost)
         {
             return;
