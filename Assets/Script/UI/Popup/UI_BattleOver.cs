@@ -74,7 +74,7 @@ public class UI_BattleOver : UI_Scene
             #region 데모 전용
             StageData stageData = GameManager.Data.Map.GetCurrentStage();
 
-            if (stageData.StageLevel == 90 && stageData.StageID == 2)
+            if (stageData.StageLevel == 90 && stageData.StageID == 1)
             {
                 BattleOverDestroy();
                 GameObject.Find("@UI_Root").transform.Find("UI_ProgressSummary").gameObject.SetActive(true);
