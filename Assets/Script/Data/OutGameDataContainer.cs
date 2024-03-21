@@ -3,8 +3,7 @@ using System.IO;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Localization.Settings;
-using static UnityEditor.Progress;
+
 
 //NPC타락퀘스트 & 진척도 & 전당 유닛 등의 인자를 저장 & 불러오는 기능
 
@@ -84,6 +83,19 @@ public class OutGameDataContainer : MonoBehaviour
         SetResolution();
     }
 
+    private void MigrationData()
+    {
+        switch (_data.Version)
+        {
+            case "1.0.0-beta": // 데모인 경우 파일 제거
+                GameManager.SaveManager.DeleteSaveData();
+                DeleteAllData();
+                CreateData();
+                break;
+
+        }
+    }
+
     public void SaveData()
     {
         string json = JsonUtility.ToJson(_data, true);
@@ -97,6 +109,16 @@ public class OutGameDataContainer : MonoBehaviour
             // AppData에 파일이 있으면 OutGameData파일이 있으면 불러오기
             string json = File.ReadAllText(_path);
             _data = JsonUtility.FromJson<OutGameData>(json);
+
+            if (_data.Version.Equals(Application.version))
+            {
+                Debug.Log("Data Load Complete");
+            }
+            else
+            {
+                Debug.Log("Data Version is not matched");
+                MigrationData();
+            }
         }
         catch(FileNotFoundException e)
         {
