@@ -87,7 +87,7 @@ public class OutGameDataContainer : MonoBehaviour
     {
         switch (_data.Version)
         {
-            case "1.0.0-beta": // 데모인 경우 파일 제거
+            case "1.0.0-demo": // 데모인 경우 파일 제거
                 GameManager.SaveManager.DeleteSaveData();
                 DeleteAllData();
                 CreateData();
@@ -116,7 +116,7 @@ public class OutGameDataContainer : MonoBehaviour
             }
             else
             {
-                Debug.Log("Data Version is not matched");
+                Debug.Log($"Data Version is not matched! Save Version : {_data.Version} / Build Version {Application.version}");
                 MigrationData();
             }
         }
