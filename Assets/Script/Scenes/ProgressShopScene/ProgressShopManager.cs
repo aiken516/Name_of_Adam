@@ -84,7 +84,7 @@ public class ProgressShopManager : MonoBehaviour
     public void OnBuyBtnClick()
     {
         #region Demo Àü¿ë
-        if (selectedID == 14)
+        if (selectedID == 14 || selectedID == 61 || selectedID == 71)
         {
             GameManager.UI.ShowPopup<UI_SystemInfo>().Init("DemoClear", "DemoClearToolTip");
             return;
