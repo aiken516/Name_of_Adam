@@ -220,10 +220,10 @@ public class StigmaSceneController : MonoBehaviour,StigmaInterface
                 unitInfo.Init(OnSelectStigmatransfertarget, CUR_EVENT.STIGMA_EXCEPTION);
             return;
         }
-        if (_givestigmatizeUnit == null) 
-        {//낙인 부여일때
+        if (_givestigmatizeUnit == null) //낙인 부여일때
+        {
             SetUnitStigma(stigma);
-            GameManager.Data.GameData.NpcQuest.StigmaQuest++;
+            //GameManager.Data.GameData.NpcQuest.StigmaQuest++;
         }
         else//낙인 이동일때
         {

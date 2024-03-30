@@ -110,7 +110,7 @@ public class GameManager : MonoBehaviour
                     break;
 
                 unit.UnitDiedEvent();
-                GameManager.Data.GameData.NpcQuest.UpgradeQuest++;
+                //GameManager.Data.GameData.NpcQuest.UpgradeQuest++;
             }
             BattleManager.Instance.BattleOverCheck();
         }
