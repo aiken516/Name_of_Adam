@@ -64,6 +64,7 @@ public class HallUnit
 public class OutGameDataContainer : MonoBehaviour
 {
     private const string encryptionKey = "EncryptOutGameData!@#$%^&*()_+";
+    private const string OutGameDataFileName = "126634399755.dat";
 
     // 현재 진행중인 게임에서 관리하는 아웃게임데이터
     private OutGameData _data;
@@ -73,7 +74,7 @@ public class OutGameDataContainer : MonoBehaviour
     public void Init()
     {
         // 사용자\AppData\localLow에 있는 SaveData.json의 경로
-        _path = Path.Combine(Application.persistentDataPath, "OutGameSaveData.json");
+        _path = Path.Combine(Application.persistentDataPath, OutGameDataFileName);
 
         _resolutions = new() {
             GetResolution(1920, 1080, 144),

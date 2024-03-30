@@ -2888,10 +2888,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Canvas: {fileID: 1801310720}
   ContinueBox: {fileID: 1137190739}
-  UI_ResetAlert: {fileID: 0}
-  SystemInfo: {fileID: 0}
-  systemInfoText: {fileID: 0}
-  systemTooltip: {fileID: 0}
 --- !u!4 &1857231097
 Transform:
   m_ObjectHideFlags: 0
