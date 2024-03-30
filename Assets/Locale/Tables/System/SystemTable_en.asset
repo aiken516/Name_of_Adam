@@ -39,6 +39,10 @@ MonoBehaviour:
       you desire more content and features, please check out the full version.'
     m_Metadata:
       m_Items: []
+  - m_Id: 6119346446069760
+    m_Localized: Do you want to save the game and exit?
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

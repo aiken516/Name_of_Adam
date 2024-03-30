@@ -51,6 +51,10 @@ MonoBehaviour:
     m_Key: DemoClearToolTip
     m_Metadata:
       m_Items: []
+  - m_Id: 6119346446069760
+    m_Key: Quit
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

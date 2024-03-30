@@ -22,16 +22,17 @@ public class UI_ESCOption : UI_Popup
     {
         GameManager.Sound.Play("UI/ButtonSFX/UIButtonClickSFX");
 
-        //UI_SystemSelect systemSelect = GameManager.UI.ShowPopup<UI_SystemSelect>();
-        //systemSelect.GetComponent<Canvas>().sortingOrder = UIManager.ESCOrder + 1;
-        //systemSelect.Init("Restart", YesGoToMain, () => GameManager.UI.ESCOPopups.Pop());
-        //GameManager.UI.ESCOPopups.Push(systemSelect);
+        UI_SystemSelect systemSelect = GameManager.UI.ShowPopup<UI_SystemSelect>();
+        systemSelect.GetComponent<Canvas>().sortingOrder = UIManager.ESCOrder + 1;
+        systemSelect.Init("Restart", YesGoToMain, () => GameManager.UI.ESCOPopups.Pop());
+        GameManager.UI.ESCOPopups.Push(systemSelect);
 
-        YesGoToMain();
+        //YesGoToMain();
     }
 
     public void YesGoToMain()
     {
+        GameManager.SaveManager.DeleteSaveData();
         SceneChanger.SceneChange("MainScene");
 
         Time.timeScale = 1;
@@ -41,6 +42,15 @@ public class UI_ESCOption : UI_Popup
     public void ExitButton()
     {
         GameManager.Sound.Play("UI/ButtonSFX/UIButtonClickSFX");
+
+        UI_SystemSelect systemSelect = GameManager.UI.ShowPopup<UI_SystemSelect>();
+        systemSelect.GetComponent<Canvas>().sortingOrder = UIManager.ESCOrder + 1;
+        systemSelect.Init("Quit", YesQuit, () => GameManager.UI.ESCOPopups.Pop());
+        GameManager.UI.ESCOPopups.Push(systemSelect);
+    }
+
+    public void YesQuit()
+    {
         Application.Quit();
     }
 }
