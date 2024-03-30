@@ -63,6 +63,8 @@ public class HallUnit
 
 public class OutGameDataContainer : MonoBehaviour
 {
+    private const string encryptionKey = "EncryptOutGameData!@#$%^&*()_+";
+
     // 현재 진행중인 게임에서 관리하는 아웃게임데이터
     private OutGameData _data;
     private string _path;
@@ -96,10 +98,22 @@ public class OutGameDataContainer : MonoBehaviour
         }
     }
 
+    private string EncryptAndDecrypt(string data)
+    {
+        string result = string.Empty;
+
+        for (int i = 0; i < data.Length; i++)
+        {
+            result += (char)(data[i] ^ encryptionKey[i % encryptionKey.Length]);
+        }
+
+        return result;
+    }
+
     public void SaveData()
     {
         string json = JsonUtility.ToJson(_data, true);
-        File.WriteAllText(_path, json);
+        File.WriteAllText(_path, EncryptAndDecrypt(json));
     }
 
     public void LoadData()
@@ -108,7 +122,7 @@ public class OutGameDataContainer : MonoBehaviour
         {
             // AppData에 파일이 있으면 OutGameData파일이 있으면 불러오기
             string json = File.ReadAllText(_path);
-            _data = JsonUtility.FromJson<OutGameData>(json);
+            _data = JsonUtility.FromJson<OutGameData>(EncryptAndDecrypt(json));
 
             if (_data.Version.Equals(Application.version))
             {
