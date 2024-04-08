@@ -22,7 +22,7 @@
     {
       "ID": 2,
       "Name": "Faith Recovery",
-      "Cost": 150,
+      "Cost": 100,
       "Prequest": 0,
       "IsLock": true,
       "IsUnlocked": false,
@@ -31,7 +31,7 @@
     {
       "ID": 3,
       "Name": "Starting dark essence I",
-      "Cost": 100,
+      "Cost": 50,
       "Prequest": 2,
       "IsLock": true,
       "IsUnlocked": false,
@@ -40,7 +40,7 @@
     {
       "ID": 5,
       "Name": "Apostle Creation",
-      "Cost": 200,
+      "Cost": 150,
       "Prequest": 2,
       "IsLock": true,
       "IsUnlocked": false,
@@ -49,7 +49,7 @@
     {
       "ID": 6,
       "Name": "Starting dark essence II",
-      "Cost": 125,
+      "Cost": 100,
       "Prequest": 3,
       "IsLock": true,
       "IsUnlocked": false,
@@ -58,7 +58,7 @@
     {
       "ID": 7,
       "Name": "Killing Spree",
-      "Cost": 50,
+      "Cost": 30,
       "Prequest": 2,
       "IsLock": true,
       "IsUnlocked": false,
@@ -175,7 +175,7 @@
     {
       "ID": 52,
       "Name": "Unlock the Dark Prophet II",
-      "Cost": 200,
+      "Cost": 100,
       "Prequest": 51,
       "IsLock": true,
       "IsUnlocked": false,
