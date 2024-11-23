@@ -316,7 +316,7 @@ public class OutGameDataContainer : MonoBehaviour
         unit.DeckUnitUpgradeStat.FallCurrentCount = 0;
 
         coverUnit.UnitName = unit.Data.ID;
-        coverUnit.IsMainDeck = true;
+        coverUnit.IsMainDeck = unit.IsMainDeck;
         coverUnit.ID = unit.HallUnitID;
         coverUnit.Stigmata = unit.GetStigmaSaveData();
         coverUnit.Upgrades = unit.GetUpgradeData();
