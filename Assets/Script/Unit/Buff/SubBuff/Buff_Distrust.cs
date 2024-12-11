@@ -53,8 +53,10 @@ public class Buff_Distrust : Buff
         for (int i = 0; i < spacing; i++)
             desc += "\n";
         desc += GameManager.Locale.GetLocalizedBuffInfo(_description);
-        desc += _buffedStatOwner;
+        desc += "<b>" + _buffedStatOwner + "</b>";
         desc += "\n";
+
+        desc += "<size=130%>";
         if (_buffedStat.ATK != 0)
             desc += GameManager.Locale.GetLocalizedBuffInfo("ATK") + _buffedStat.ATK + "\n";
 
@@ -63,6 +65,7 @@ public class Buff_Distrust : Buff
 
         if (_buffedStat.MaxHP != 0)
             desc += GameManager.Locale.GetLocalizedBuffInfo("HP") + _buffedStat.MaxHP + "\n";
+        desc += "</size>";
 
         return desc;
     }

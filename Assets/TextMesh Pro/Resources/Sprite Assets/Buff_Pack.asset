@@ -251,6 +251,12 @@ MonoBehaviour:
     m_Scale: 3
     m_Name: Pack_28
     m_HashCode: -1014888276
+  - m_ElementType: 2
+    m_Unicode: 65534
+    m_GlyphIndex: 29
+    m_Scale: 3
+    m_Name: Pack_29
+    m_HashCode: -1014888275
   m_SpriteGlyphTable:
   - m_Index: 0
     m_Metrics:
@@ -687,5 +693,20 @@ MonoBehaviour:
     m_Scale: 1
     m_AtlasIndex: 0
     sprite: {fileID: -496545958, guid: bbec4bce018f8f44d888a9d314f10839, type: 3}
+  - m_Index: 29
+    m_Metrics:
+      m_Width: 64
+      m_Height: 64
+      m_HorizontalBearingX: 0
+      m_HorizontalBearingY: 48
+      m_HorizontalAdvance: 64
+    m_GlyphRect:
+      m_X: 256
+      m_Y: 0
+      m_Width: 64
+      m_Height: 64
+    m_Scale: 1
+    m_AtlasIndex: 0
+    sprite: {fileID: 489516661, guid: bbec4bce018f8f44d888a9d314f10839, type: 3}
   spriteInfoList: []
   fallbackSpriteAssets: []
