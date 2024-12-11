@@ -29,6 +29,8 @@ public class UpgradeSceneController : MonoBehaviour
     private Upgrade _preSelectedUpgrade;
     private bool _isUpgradePreSet = false;
 
+    const float _corruptionValue = 120f;
+
     void Start()
     {
         Init();
@@ -43,8 +45,8 @@ public class UpgradeSceneController : MonoBehaviour
 
         Debug.Log($"횟수: {GameManager.OutGameData.Data.BaptismCorruptValue}");
 
-        int questLevel = Mathf.Min(GameManager.OutGameData.Data.BaptismCorruptValue / 30, 4);
-        if (questLevel == 4 && GameManager.OutGameData.Data.PhanuelClear && !GameManager.OutGameData.Data.IsBaptismCorrupt)
+        if (!GameManager.OutGameData.Data.IsBaptismCorrupt && 
+            GameManager.OutGameData.Data.BaptismCorruptValue >= _corruptionValue && GameManager.OutGameData.Data.PhanuelClear)
         {
             GameManager.OutGameData.Data.IsBaptismCorrupt = true;
             DeckUnit unit = new()
@@ -74,17 +76,34 @@ public class UpgradeSceneController : MonoBehaviour
             _upgradeButtonText.SetText(GameManager.Locale.GetLocalizedEventScene("Upgrade"));
         }
 
+        int questLevel = (int)(GameManager.OutGameData.Data.BaptismCorruptValue / (_corruptionValue / 4));
+        if (questLevel >= 4)
+        {
+            if (GameManager.OutGameData.Data.IsBaptismCorrupt)
+            {
+                questLevel = 4;
+            }
+            else
+            {
+                questLevel = 3;
+            }
+        }
+
         if (!GameManager.OutGameData.Data.IsVisitBaptism)
         {
-            _scripts = GameManager.Data.ScriptData["강화소_입장_최초"];
-            _descriptionText.SetText(GameManager.Locale.GetLocalizedScriptInfo(GameManager.Data.ScriptData["강화소_선택_0"][0].script));
-            _nameText.SetText(GameManager.Locale.GetLocalizedScriptName(GameManager.Data.ScriptData["강화소_선택_0"][0].name));
+            _scripts = GameManager.Data.ScriptData["Baptism_Entrance_First"];
+
+            Script descriptionScript = GameManager.Data.ScriptData["Baptism_Menu_0"][0];
+            _descriptionText.SetText(GameManager.Locale.GetLocalizedScriptInfo(descriptionScript.script));
+            _nameText.SetText(GameManager.Locale.GetLocalizedScriptName(descriptionScript.name));
         }
         else
         {
-            _scripts = GameManager.Data.ScriptData[$"강화소_입장_{25 * questLevel}_랜덤코드:{Random.Range(0, enterDialogNums[questLevel])}"];
-            _descriptionText.SetText(GameManager.Locale.GetLocalizedScriptInfo(GameManager.Data.ScriptData[$"강화소_선택_{25 * questLevel}"][0].script));
-            _nameText.SetText(GameManager.Locale.GetLocalizedScriptName(GameManager.Data.ScriptData[$"강화소_선택_{25 * questLevel}"][0].name));
+            _scripts = GameManager.Data.ScriptData[$"Baptism_Entrance_{25 * questLevel}_{Random.Range(0, enterDialogNums[questLevel])}"];
+
+            Script descriptionScript = GameManager.Data.ScriptData[$"Baptism_Menu_{25 * questLevel}"][0];
+            _descriptionText.SetText(GameManager.Locale.GetLocalizedScriptInfo(descriptionScript.script));
+            _nameText.SetText(GameManager.Locale.GetLocalizedScriptName(descriptionScript.name));
         }
 
         for (int i = 0; i < 3; i++)
@@ -95,6 +114,44 @@ public class UpgradeSceneController : MonoBehaviour
         _conversationUI = GameManager.UI.ShowPopup<UI_Conversation>();
         _conversationUI.Init(_scripts);
         _conversationUI.ConversationEnded += OnConversationEnded;
+    }
+
+    private IEnumerator QuitScene(UI_Conversation eventScript = null)
+    {
+        if (eventScript != null)
+            yield return StartCoroutine(eventScript.PrintScript());
+
+        UI_Conversation quitScript = GameManager.UI.ShowPopup<UI_Conversation>();
+
+        if (!GameManager.OutGameData.Data.IsVisitBaptism)
+        {
+            GameManager.OutGameData.Data.IsVisitBaptism = true;
+            quitScript.Init(GameManager.Data.ScriptData["Baptism_Exit_First"], false);
+        }
+        else
+        {
+            int questLevel = (int)(GameManager.OutGameData.Data.BaptismCorruptValue / (_corruptionValue / 4));
+            if (questLevel >= 4)
+            {
+                if (GameManager.OutGameData.Data.IsBaptismCorrupt)
+                {
+                    questLevel = 4;
+                }
+                else
+                {
+                    questLevel = 3;
+                }
+            }
+
+            quitScript.Init(GameManager.Data.ScriptData[$"Baptism_Exit_{25 * questLevel}_{Random.Range(0, exitDialogNums[questLevel])}"], false);
+        }
+
+        yield return StartCoroutine(quitScript.PrintScript());
+
+        GameManager.Data.Map.SetCurrentTileClear();
+        GameManager.SaveManager.SaveGame();
+        GameManager.OutGameData.SaveData();
+        SceneChanger.SceneChange("StageSelectScene");
     }
 
     //강화 버튼 클릭, 업그레이드 할 유닛을 고릅니다.
@@ -228,33 +285,6 @@ public class UpgradeSceneController : MonoBehaviour
     {
         GameManager.Sound.Play("UI/UISFX/UIButtonSFX");
         StartCoroutine(QuitScene());
-    }
-
-    private IEnumerator QuitScene(UI_Conversation eventScript = null)
-    {
-        if (eventScript != null)
-            yield return StartCoroutine(eventScript.PrintScript());
-
-        UI_Conversation quitScript = GameManager.UI.ShowPopup<UI_Conversation>();
-
-        if (!GameManager.OutGameData.Data.IsVisitBaptism)
-        {
-            GameManager.OutGameData.Data.IsVisitBaptism = true;
-            quitScript.Init(GameManager.Data.ScriptData["강화소_퇴장_최초"], false);
-        }
-        else
-        {
-            int questLevel = GameManager.OutGameData.Data.BaptismCorruptValue / 75;
-            if (questLevel > 4) questLevel = 4;
-            quitScript.Init(GameManager.Data.ScriptData[$"강화소_퇴장_{25 * questLevel}_랜덤코드:{Random.Range(0, exitDialogNums[questLevel])}"], false);
-        }
-
-        yield return StartCoroutine(quitScript.PrintScript());
-
-        GameManager.Data.Map.SetCurrentTileClear();
-        GameManager.SaveManager.SaveGame();
-        GameManager.OutGameData.SaveData();
-        SceneChanger.SceneChange("StageSelectScene");
     }
 
     private void OnConversationEnded()

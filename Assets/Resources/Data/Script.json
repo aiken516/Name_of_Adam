@@ -112,7 +112,7 @@
       ]
     },
     {
-      "title": "강화소_입장_최초",
+      "title": "Baptism_Entrance_First",
       "contents": [
         {
           "name": "Messenger of faith",
@@ -121,7 +121,7 @@
       ]
     },
     {
-      "title": "강화소_입장_0_랜덤코드:0",
+      "title": "Baptism_Entrance_0_0",
       "contents": [
         {
           "name": "Messenger of faith",
@@ -130,7 +130,7 @@
       ]
     },
     {
-      "title": "강화소_입장_0_랜덤코드:1",
+      "title": "Baptism_Entrance_0_1",
       "contents": [
         {
           "name": "Messenger of faith",
@@ -139,7 +139,7 @@
       ]
     },
     {
-      "title": "강화소_입장_0_랜덤코드:2",
+      "title": "Baptism_Entrance_0_2",
       "contents": [
         {
           "name": "Messenger of faith",
@@ -148,7 +148,7 @@
       ]
     },
     {
-      "title": "강화소_입장_25_랜덤코드:0",
+      "title": "Baptism_Entrance_25_0",
       "contents": [
         {
           "name": "Messenger of faith",
@@ -157,7 +157,7 @@
       ]
     },
     {
-      "title": "강화소_입장_25_랜덤코드:1",
+      "title": "Baptism_Entrance_25_1",
       "contents": [
         {
           "name": "Messenger of faith",
@@ -166,7 +166,7 @@
       ]
     },
     {
-      "title": "강화소_입장_25_랜덤코드:2",
+      "title": "Baptism_Entrance_25_2",
       "contents": [
         {
           "name": "Messenger of faith",
@@ -175,7 +175,7 @@
       ]
     },
     {
-      "title": "강화소_입장_50_랜덤코드:0",
+      "title": "Baptism_Entrance_50_0",
       "contents": [
         {
           "name": "Messenger of faith",
@@ -184,7 +184,7 @@
       ]
     },
     {
-      "title": "강화소_입장_50_랜덤코드:1",
+      "title": "Baptism_Entrance_50_1",
       "contents": [
         {
           "name": "Messenger of faith",
@@ -193,7 +193,7 @@
       ]
     },
     {
-      "title": "강화소_입장_50_랜덤코드:2",
+      "title": "Baptism_Entrance_50_2",
       "contents": [
         {
           "name": "Messenger of faith",
@@ -202,7 +202,7 @@
       ]
     },
     {
-      "title": "강화소_입장_75_랜덤코드:0",
+      "title": "Baptism_Entrance_75_0",
       "contents": [
         {
           "name": "Messenger of faith",
@@ -211,7 +211,7 @@
       ]
     },
     {
-      "title": "강화소_입장_75_랜덤코드:1",
+      "title": "Baptism_Entrance_75_1",
       "contents": [
         {
           "name": "Messenger of faith",
@@ -220,7 +220,7 @@
       ]
     },
     {
-      "title": "강화소_입장_75_랜덤코드:2",
+      "title": "Baptism_Entrance_75_2",
       "contents": [
         {
           "name": "Messenger of faith",
@@ -229,7 +229,7 @@
       ]
     },
     {
-      "title": "강화소_입장_100_랜덤코드:0",
+      "title": "Baptism_Entrance_100_0",
       "contents": [
         {
           "name": "Betrayer of faith",
@@ -238,7 +238,7 @@
       ]
     },
     {
-      "title": "강화소_입장_100_랜덤코드:1",
+      "title": "Baptism_Entrance_100_1",
       "contents": [
         {
           "name": "Betrayer of faith",
@@ -247,7 +247,7 @@
       ]
     },
     {
-      "title": "강화소_입장_100_랜덤코드:2",
+      "title": "Baptism_Entrance_100_2",
       "contents": [
         {
           "name": "Betrayer of faith",
@@ -256,7 +256,7 @@
       ]
     },
     {
-      "title": "강화소_퇴장_최초",
+      "title": "Baptism_Exit_First",
       "contents": [
         {
           "name": "Messenger of faith",
@@ -265,7 +265,7 @@
       ]
     },
     {
-      "title": "강화소_퇴장_0_랜덤코드:0",
+      "title": "Baptism_Exit_0_0",
       "contents": [
         {
           "name": "Messenger of faith",
@@ -274,7 +274,7 @@
       ]
     },
     {
-      "title": "강화소_퇴장_25_랜덤코드:0",
+      "title": "Baptism_Exit_25_0",
       "contents": [
         {
           "name": "Messenger of faith",
@@ -283,7 +283,7 @@
       ]
     },
     {
-      "title": "강화소_퇴장_50_랜덤코드:0",
+      "title": "Baptism_Exit_50_0",
       "contents": [
         {
           "name": "Messenger of faith",
@@ -292,7 +292,7 @@
       ]
     },
     {
-      "title": "강화소_퇴장_75_랜덤코드:0",
+      "title": "Baptism_Exit_75_0",
       "contents": [
         {
           "name": "Messenger of faith",
@@ -301,7 +301,7 @@
       ]
     },
     {
-      "title": "강화소_퇴장_100_랜덤코드:0",
+      "title": "Baptism_Exit_100_0",
       "contents": [
         {
           "name": "Betrayer of faith",
@@ -310,7 +310,7 @@
       ]
     },
     {
-      "title": "강화소_선택_0",
+      "title": "Baptism_Menu_0",
       "contents": [
         {
           "name": "Messenger of faith",
@@ -319,7 +319,7 @@
       ]
     },
     {
-      "title": "강화소_선택_25",
+      "title": "Baptism_Menu_25",
       "contents": [
         {
           "name": "Messenger of faith",
@@ -328,7 +328,7 @@
       ]
     },
     {
-      "title": "강화소_선택_50",
+      "title": "Baptism_Menu_50",
       "contents": [
         {
           "name": "Messenger of faith",
@@ -337,7 +337,7 @@
       ]
     },
     {
-      "title": "강화소_선택_75",
+      "title": "Baptism_Menu_75",
       "contents": [
         {
           "name": "Messenger of faith",
@@ -346,7 +346,7 @@
       ]
     },
     {
-      "title": "강화소_선택_100",
+      "title": "Baptism_Menu_100",
       "contents": [
         {
           "name": "Betrayer of faith",
@@ -355,7 +355,7 @@
       ]
     },
     {
-      "title": "낙인소_입장_최초",
+      "title": "Stigmata_Entrance_First",
       "contents": [
         {
           "name": "Messenger of hope",
@@ -364,7 +364,7 @@
       ]
     },
     {
-      "title": "낙인소_입장_0_랜덤코드:0",
+      "title": "Stigmata_Entrance_0_0",
       "contents": [
         {
           "name": "Messenger of hope",
@@ -373,7 +373,7 @@
       ]
     },
     {
-      "title": "낙인소_입장_0_랜덤코드:1",
+      "title": "Stigmata_Entrance_0_1",
       "contents": [
         {
           "name": "Messenger of hope",
@@ -382,7 +382,7 @@
       ]
     },
     {
-      "title": "낙인소_입장_0_랜덤코드:2",
+      "title": "Stigmata_Entrance_0_2",
       "contents": [
         {
           "name": "Messenger of hope",
@@ -391,7 +391,7 @@
       ]
     },
     {
-      "title": "낙인소_입장_25_랜덤코드:0",
+      "title": "Stigmata_Entrance_25_0",
       "contents": [
         {
           "name": "Messenger of hope",
@@ -400,7 +400,7 @@
       ]
     },
     {
-      "title": "낙인소_입장_25_랜덤코드:1",
+      "title": "Stigmata_Entrance_25_1",
       "contents": [
         {
           "name": "Messenger of hope",
@@ -409,7 +409,7 @@
       ]
     },
     {
-      "title": "낙인소_입장_50_랜덤코드:0",
+      "title": "Stigmata_Entrance_50_0",
       "contents": [
         {
           "name": "Messenger of hope",
@@ -418,7 +418,7 @@
       ]
     },
     {
-      "title": "낙인소_입장_50_랜덤코드:1",
+      "title": "Stigmata_Entrance_50_1",
       "contents": [
         {
           "name": "Messenger of hope",
@@ -427,7 +427,7 @@
       ]
     },
     {
-      "title": "낙인소_입장_50_랜덤코드:2",
+      "title": "Stigmata_Entrance_50_2",
       "contents": [
         {
           "name": "Messenger of hope",
@@ -436,7 +436,7 @@
       ]
     },
     {
-      "title": "낙인소_입장_75_랜덤코드:0",
+      "title": "Stigmata_Entrance_75_0",
       "contents": [
         {
           "name": "Messenger of hope",
@@ -445,7 +445,7 @@
       ]
     },
     {
-      "title": "낙인소_입장_75_랜덤코드:1",
+      "title": "Stigmata_Entrance_75_1",
       "contents": [
         {
           "name": "Messenger of hope",
@@ -454,7 +454,7 @@
       ]
     },
     {
-      "title": "낙인소_입장_75_랜덤코드:2",
+      "title": "Stigmata_Entrance_75_2",
       "contents": [
         {
           "name": "Messenger of hope",
@@ -463,7 +463,7 @@
       ]
     },
     {
-      "title": "낙인소_입장_100_랜덤코드:0",
+      "title": "Stigmata_Entrance_100_0",
       "contents": [
         {
           "name": "Betrayer of hope",
@@ -472,7 +472,7 @@
       ]
     },
     {
-      "title": "낙인소_입장_100_랜덤코드:1",
+      "title": "Stigmata_Entrance_100_1",
       "contents": [
         {
           "name": "Betrayer of hope",
@@ -481,7 +481,7 @@
       ]
     },
     {
-      "title": "낙인소_입장_100_랜덤코드:2",
+      "title": "Stigmata_Entrance_100_2",
       "contents": [
         {
           "name": "Betrayer of hope",
@@ -490,7 +490,7 @@
       ]
     },
     {
-      "title": "낙인소_퇴장_최초",
+      "title": "Stigmata_Exit_First",
       "contents": [
         {
           "name": "Messenger of hope",
@@ -499,7 +499,7 @@
       ]
     },
     {
-      "title": "낙인소_퇴장_0_랜덤코드:0",
+      "title": "Stigmata_Exit_0_0",
       "contents": [
         {
           "name": "Messenger of hope",
@@ -508,7 +508,7 @@
       ]
     },
     {
-      "title": "낙인소_퇴장_25_랜덤코드:0",
+      "title": "Stigmata_Exit_25_0",
       "contents": [
         {
           "name": "Messenger of hope",
@@ -517,7 +517,7 @@
       ]
     },
     {
-      "title": "낙인소_퇴장_50_랜덤코드:0",
+      "title": "Stigmata_Exit_50_0",
       "contents": [
         {
           "name": "Messenger of hope",
@@ -526,7 +526,7 @@
       ]
     },
     {
-      "title": "낙인소_퇴장_75_랜덤코드:0",
+      "title": "Stigmata_Exit_75_0",
       "contents": [
         {
           "name": "Messenger of hope",
@@ -535,7 +535,7 @@
       ]
     },
     {
-      "title": "낙인소_퇴장_100_랜덤코드:0",
+      "title": "Stigmata_Exit_100_0",
       "contents": [
         {
           "name": "Betrayer of hope",
@@ -544,7 +544,7 @@
       ]
     },
     {
-      "title": "낙인소_선택_0",
+      "title": "Stigmata_Menu_0",
       "contents": [
         {
           "name": "Messenger of hope",
@@ -553,7 +553,7 @@
       ]
     },
     {
-      "title": "낙인소_선택_25",
+      "title": "Stigmata_Menu_25",
       "contents": [
         {
           "name": "Messenger of hope",
@@ -562,7 +562,7 @@
       ]
     },
     {
-      "title": "낙인소_선택_50",
+      "title": "Stigmata_Menu_50",
       "contents": [
         {
           "name": "Messenger of hope",
@@ -571,7 +571,7 @@
       ]
     },
     {
-      "title": "낙인소_선택_75",
+      "title": "Stigmata_Menu_75",
       "contents": [
         {
           "name": "Messenger of hope",
@@ -580,7 +580,7 @@
       ]
     },
     {
-      "title": "낙인소_선택_100",
+      "title": "Stigmata_Menu_100",
       "contents": [
         {
           "name": "Betrayer of hope",
@@ -589,7 +589,7 @@
       ]
     },
     {
-      "title": "탕녀_입장_최초",
+      "title": "Sacrifice_Entrance_First",
       "contents": [
         {
           "name": "Messenger of love",
@@ -598,7 +598,7 @@
       ]
     },
     {
-      "title": "탕녀_입장_0_랜덤코드:0",
+      "title": "Sacrifice_Entrance_0_0",
       "contents": [
         {
           "name": "Messenger of love",
@@ -607,7 +607,7 @@
       ]
     },
     {
-      "title": "탕녀_입장_0_랜덤코드:1",
+      "title": "Sacrifice_Entrance_0_1",
       "contents": [
         {
           "name": "Messenger of love",
@@ -616,7 +616,7 @@
       ]
     },
     {
-      "title": "탕녀_입장_0_랜덤코드:2",
+      "title": "Sacrifice_Entrance_0_2",
       "contents": [
         {
           "name": "Messenger of love",
@@ -625,7 +625,7 @@
       ]
     },
     {
-      "title": "탕녀_입장_25_랜덤코드:0",
+      "title": "Sacrifice_Entrance_25_0",
       "contents": [
         {
           "name": "Messenger of love",
@@ -634,7 +634,7 @@
       ]
     },
     {
-      "title": "탕녀_입장_25_랜덤코드:1",
+      "title": "Sacrifice_Entrance_25_1",
       "contents": [
         {
           "name": "Messenger of love",
@@ -643,7 +643,7 @@
       ]
     },
     {
-      "title": "탕녀_입장_25_랜덤코드:2",
+      "title": "Sacrifice_Entrance_25_2",
       "contents": [
         {
           "name": "Messenger of love",
@@ -652,7 +652,7 @@
       ]
     },
     {
-      "title": "탕녀_입장_50_랜덤코드:0",
+      "title": "Sacrifice_Entrance_50_0",
       "contents": [
         {
           "name": "Messenger of love",
@@ -661,7 +661,7 @@
       ]
     },
     {
-      "title": "탕녀_입장_50_랜덤코드:1",
+      "title": "Sacrifice_Entrance_50_1",
       "contents": [
         {
           "name": "Messenger of love",
@@ -670,7 +670,7 @@
       ]
     },
     {
-      "title": "탕녀_입장_50_랜덤코드:2",
+      "title": "Sacrifice_Entrance_50_2",
       "contents": [
         {
           "name": "Messenger of love",
@@ -679,7 +679,7 @@
       ]
     },
     {
-      "title": "탕녀_입장_75_랜덤코드:0",
+      "title": "Sacrifice_Entrance_75_0",
       "contents": [
         {
           "name": "Messenger of love",
@@ -688,7 +688,7 @@
       ]
     },
     {
-      "title": "탕녀_입장_75_랜덤코드:1",
+      "title": "Sacrifice_Entrance_75_1",
       "contents": [
         {
           "name": "Messenger of love",
@@ -697,7 +697,7 @@
       ]
     },
     {
-      "title": "탕녀_입장_75_랜덤코드:2",
+      "title": "Sacrifice_Entrance_75_2",
       "contents": [
         {
           "name": "Messenger of love",
@@ -706,7 +706,7 @@
       ]
     },
     {
-      "title": "탕녀_입장_100_랜덤코드:0",
+      "title": "Sacrifice_Entrance_100_0",
       "contents": [
         {
           "name": "Betrayer of love",
@@ -715,7 +715,7 @@
       ]
     },
     {
-      "title": "탕녀_입장_100_랜덤코드:1",
+      "title": "Sacrifice_Entrance_100_1",
       "contents": [
         {
           "name": "Betrayer of love",
@@ -724,7 +724,7 @@
       ]
     },
     {
-      "title": "탕녀_입장_100_랜덤코드:2",
+      "title": "Sacrifice_Entrance_100_2",
       "contents": [
         {
           "name": "Betrayer of love",
@@ -733,7 +733,7 @@
       ]
     },
     {
-      "title": "탕녀_퇴장_최초",
+      "title": "Sacrifice_Exit_First",
       "contents": [
         {
           "name": "Messenger of love",
@@ -742,7 +742,7 @@
       ]
     },
     {
-      "title": "탕녀_퇴장_0_랜덤코드:0",
+      "title": "Sacrifice_Exit_0_0",
       "contents": [
         {
           "name": "Messenger of love",
@@ -751,7 +751,7 @@
       ]
     },
     {
-      "title": "탕녀_퇴장_25_랜덤코드:0",
+      "title": "Sacrifice_Exit_25_0",
       "contents": [
         {
           "name": "Messenger of love",
@@ -760,7 +760,7 @@
       ]
     },
     {
-      "title": "탕녀_퇴장_50_랜덤코드:0",
+      "title": "Sacrifice_Exit_50_0",
       "contents": [
         {
           "name": "Messenger of love",
@@ -769,7 +769,7 @@
       ]
     },
     {
-      "title": "탕녀_퇴장_75_랜덤코드:0",
+      "title": "Sacrifice_Exit_75_0",
       "contents": [
         {
           "name": "Messenger of love",
@@ -778,7 +778,7 @@
       ]
     },
     {
-      "title": "탕녀_퇴장_100_랜덤코드:0",
+      "title": "Sacrifice_Exit_100_0",
       "contents": [
         {
           "name": "Betrayer of love",
@@ -787,7 +787,7 @@
       ]
     },
     {
-      "title": "탕녀_선택_0",
+      "title": "Sacrifice_Menu_0",
       "contents": [
         {
           "name": "Messenger of love",
@@ -796,7 +796,7 @@
       ]
     },
     {
-      "title": "탕녀_선택_25",
+      "title": "Sacrifice_Menu_25",
       "contents": [
         {
           "name": "Messenger of love",
@@ -805,7 +805,7 @@
       ]
     },
     {
-      "title": "탕녀_선택_50",
+      "title": "Sacrifice_Menu_50",
       "contents": [
         {
           "name": "Messenger of love",
@@ -814,7 +814,7 @@
       ]
     },
     {
-      "title": "탕녀_선택_75",
+      "title": "Sacrifice_Menu_75",
       "contents": [
         {
           "name": "Messenger of love",
@@ -823,7 +823,7 @@
       ]
     },
     {
-      "title": "탕녀_선택_100",
+      "title": "Sacrifice_Menu_100",
       "contents": [
         {
           "name": "Betrayer of love",

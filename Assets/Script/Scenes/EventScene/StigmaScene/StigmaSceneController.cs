@@ -36,6 +36,8 @@ public class StigmaSceneController : MonoBehaviour, StigmaInterface
 
     private bool _isStigmataFull = false;
 
+    const float _corruptionValue = 40f;
+
     void Start()
     {
         Init();
@@ -77,11 +79,12 @@ public class StigmaSceneController : MonoBehaviour, StigmaInterface
 
         Debug.Log($"횟수: {GameManager.OutGameData.Data.StigmataCorruptValue}");
 
-        int questLevel = Mathf.Min((int)(GameManager.OutGameData.Data.StigmataCorruptValue / 10f), 4);
-        if (questLevel == 4 && !GameManager.OutGameData.Data.IsStigmataCorrupt && GameManager.OutGameData.Data.YohrnClear)
+        if ((!GameManager.OutGameData.Data.IsStigmataCorrupt &&
+            GameManager.OutGameData.Data.StigmataCorruptValue >= _corruptionValue && GameManager.OutGameData.Data.YohrnClear) ||
+            (GameManager.OutGameData.Data.IsStigmataCorrupt && GameManager.OutGameData.Data.HallUnit.Find(x => x.PrivateKey == "OnlyUnit_Betrayer_Of_Hope") == null))
         {
             GameManager.OutGameData.Data.IsStigmataCorrupt = true;
-            
+            Debug.Log("GET");
             DeckUnit unit = new()
             {
                 Data = GameManager.Resource.Load<UnitDataSO>($"ScriptableObject/UnitDataSO/소망을_저버린_자"),
@@ -108,17 +111,36 @@ public class StigmaSceneController : MonoBehaviour, StigmaInterface
             _stigmaBestowalButtonText.SetText(GameManager.Locale.GetLocalizedEventScene("Stigmata Bestowal"));
         }
 
+        int questLevel = (int)(GameManager.OutGameData.Data.StigmataCorruptValue / (_corruptionValue / 4));
+        if (questLevel >= 4)
+        {
+            if (GameManager.OutGameData.Data.IsStigmataCorrupt)
+            {
+                questLevel = 4;
+            }
+            else
+            {
+                questLevel = 3;
+            }
+        }
+
         if (!GameManager.OutGameData.Data.IsVisitStigmata)
         {
-            _scripts = GameManager.Data.ScriptData["낙인소_입장_최초"];
-            _descriptionText.SetText(GameManager.Locale.GetLocalizedScriptInfo(GameManager.Data.ScriptData["낙인소_선택_0"][0].script));
-            _nameText.SetText(GameManager.Locale.GetLocalizedScriptName(GameManager.Data.ScriptData["낙인소_선택_0"][0].name));
+            _scripts = GameManager.Data.ScriptData["Stigmata_Entrance_First"];
+
+            Script descriptionScript = GameManager.Data.ScriptData["Stigmata_Menu_0"][0];
+
+            _descriptionText.SetText(GameManager.Locale.GetLocalizedScriptInfo(descriptionScript.script));
+            _nameText.SetText(GameManager.Locale.GetLocalizedScriptName(descriptionScript.name));
         }
         else
         {
-            _scripts = GameManager.Data.ScriptData[$"낙인소_입장_{25 * questLevel}_랜덤코드:{Random.Range(0, enterDialogNums[questLevel])}"];
-            _descriptionText.SetText(GameManager.Locale.GetLocalizedScriptInfo(GameManager.Data.ScriptData[$"낙인소_선택_{25 * questLevel}"][0].script));
-            _nameText.SetText(GameManager.Locale.GetLocalizedScriptName(GameManager.Data.ScriptData[$"낙인소_선택_{25 * questLevel}"][0].name));
+            _scripts = GameManager.Data.ScriptData[$"Stigmata_Entrance_{25 * questLevel}_{Random.Range(0, enterDialogNums[questLevel])}"];
+
+            Script descriptionScript = GameManager.Data.ScriptData[$"Stigmata_Menu_{25 * questLevel}"][0];
+
+            _descriptionText.SetText(GameManager.Locale.GetLocalizedScriptInfo(descriptionScript.script));
+            _nameText.SetText(GameManager.Locale.GetLocalizedScriptName(descriptionScript.name));
         }
 
         for (int i = 0; i < 3; i++)
@@ -129,6 +151,42 @@ public class StigmaSceneController : MonoBehaviour, StigmaInterface
         GameManager.UI.ShowPopup<UI_Conversation>().Init(_scripts);
         _uiConversation = FindObjectOfType<UI_Conversation>();
         _uiConversation.ConversationEnded += OnConversationEnded;
+    }
+
+    private IEnumerator QuitScene(UI_Conversation eventScript = null)
+    {
+        if (eventScript != null)
+            yield return StartCoroutine(eventScript.PrintScript());
+
+        UI_Conversation quitScript = GameManager.UI.ShowPopup<UI_Conversation>();
+
+        if (!GameManager.OutGameData.Data.IsVisitStigmata)
+        {
+            GameManager.OutGameData.Data.IsVisitStigmata = true;
+            quitScript.Init(GameManager.Data.ScriptData["Stigmata_Exit_First"], false);
+        }
+        else
+        {
+            int questLevel = (int)(GameManager.OutGameData.Data.StigmataCorruptValue / (_corruptionValue / 4));
+            if (questLevel >= 4)
+            {
+                if (GameManager.OutGameData.Data.IsStigmataCorrupt)
+                {
+                    questLevel = 4;
+                }
+                else
+                {
+                    questLevel = 3;
+                }
+            }
+
+            quitScript.Init(GameManager.Data.ScriptData[$"Stigmata_Exit_{25 * questLevel}_{Random.Range(0, exitDialogNums[questLevel])}"], false);
+        }
+        yield return StartCoroutine(quitScript.PrintScript());
+        GameManager.Data.Map.SetCurrentTileClear();
+        GameManager.SaveManager.SaveGame();
+        GameManager.OutGameData.SaveData();
+        SceneChanger.SceneChange("StageSelectScene");
     }
 
     //성흔 부여 버튼 클릭
@@ -325,30 +383,5 @@ public class StigmaSceneController : MonoBehaviour, StigmaInterface
     private void OnConversationEnded()
     {
         _selectMenuUI.SetActive(true);
-    }
-
-    private IEnumerator QuitScene(UI_Conversation eventScript = null)
-    {
-        if (eventScript != null)
-            yield return StartCoroutine(eventScript.PrintScript());
-
-        UI_Conversation quitScript = GameManager.UI.ShowPopup<UI_Conversation>();
-
-        if (!GameManager.OutGameData.Data.IsVisitStigmata)
-        {
-            GameManager.OutGameData.Data.IsVisitStigmata = true;
-            quitScript.Init(GameManager.Data.ScriptData["낙인소_퇴장_최초"], false);
-        }
-        else
-        {
-            int questLevel = (int)(GameManager.OutGameData.Data.StigmataCorruptValue / 7.5f);
-            if (questLevel > 4) questLevel = 4;
-            quitScript.Init(GameManager.Data.ScriptData[$"낙인소_퇴장_{25 * questLevel}_랜덤코드:{Random.Range(0, exitDialogNums[questLevel])}"], false);
-        }
-        yield return StartCoroutine(quitScript.PrintScript());
-        GameManager.Data.Map.SetCurrentTileClear();
-        GameManager.SaveManager.SaveGame();
-        GameManager.OutGameData.SaveData();
-        SceneChanger.SceneChange("StageSelectScene");
     }
 }

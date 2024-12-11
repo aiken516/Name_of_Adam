@@ -53,6 +53,8 @@ public class HarlotSceneController : MonoBehaviour, StigmaInterface
     private int _stigmataBestowalDarkEssence;
     private int _apostleCreationDarkEssence;
 
+    const float _corruptionValue = 80f;
+
     void Start()
     {
         Init();
@@ -62,8 +64,7 @@ public class HarlotSceneController : MonoBehaviour, StigmaInterface
     {
         Debug.Log($"횟수: {GameManager.OutGameData.Data.SacrificeCorruptValue}");
 
-        int questLevel = Mathf.Min((int)(GameManager.OutGameData.Data.SacrificeCorruptValue / 20f), 4);
-        if (questLevel == 4 && GameManager.OutGameData.Data.SaviorClear && !GameManager.OutGameData.Data.IsSacrificeCorrupt)
+        if (GameManager.OutGameData.Data.SacrificeCorruptValue >= _corruptionValue && GameManager.OutGameData.Data.SaviorClear && !GameManager.OutGameData.Data.IsSacrificeCorrupt)
         {
             GameManager.OutGameData.Data.IsSacrificeCorrupt = true;
             /*
@@ -105,17 +106,36 @@ public class HarlotSceneController : MonoBehaviour, StigmaInterface
         //_apostleCreationDarkEssence = (_isNPCFall) ? 10 : 15;
         _apostleCreationDarkEssence = 15;
 
+        int questLevel = (int)(GameManager.OutGameData.Data.SacrificeCorruptValue / (_corruptionValue / 4));
+        if (questLevel >= 4)
+        {
+            if (GameManager.OutGameData.Data.IsSacrificeCorrupt)
+            {
+                questLevel = 4;
+            }
+            else
+            {
+                questLevel = 3;
+            }
+        }
+
         if (!GameManager.OutGameData.Data.IsVisitSacrifice)
         {
-            _scripts = GameManager.Data.ScriptData["탕녀_입장_최초"];
-            _descriptionText.SetText(GameManager.Locale.GetLocalizedScriptInfo(GameManager.Data.ScriptData["탕녀_선택_0"][0].script));
-            _nameText.SetText(GameManager.Locale.GetLocalizedScriptName(GameManager.Data.ScriptData["탕녀_선택_0"][0].name));
+            _scripts = GameManager.Data.ScriptData["Sacrifice_Entrance_First"];
+
+            Script descriptionScript = GameManager.Data.ScriptData["Sacrifice_Menu_0"][0];
+
+            _descriptionText.SetText(GameManager.Locale.GetLocalizedScriptInfo(descriptionScript.script));
+            _nameText.SetText(GameManager.Locale.GetLocalizedScriptName(descriptionScript.name));
         }
         else
         {
-            _scripts = GameManager.Data.ScriptData[$"탕녀_입장_{25 * questLevel}_랜덤코드:{Random.Range(0, enterDialogNums[questLevel])}"];
-            _descriptionText.SetText(GameManager.Locale.GetLocalizedScriptInfo(GameManager.Data.ScriptData[$"탕녀_선택_{25 * questLevel}"][0].script));
-            _nameText.SetText(GameManager.Locale.GetLocalizedScriptName(GameManager.Data.ScriptData[$"탕녀_선택_{25 * questLevel}"][0].name));
+            _scripts = GameManager.Data.ScriptData[$"Sacrifice_Entrance_{25 * questLevel}_{Random.Range(0, enterDialogNums[questLevel])}"];
+
+            Script descriptionScript = GameManager.Data.ScriptData[$"Sacrifice_Menu_{25 * questLevel}"][0];
+
+            _descriptionText.SetText(GameManager.Locale.GetLocalizedScriptInfo(descriptionScript.script));
+            _nameText.SetText(GameManager.Locale.GetLocalizedScriptName(descriptionScript.name));
         }
 
         for (int i = 0; i < 3; i++)
@@ -146,6 +166,43 @@ public class HarlotSceneController : MonoBehaviour, StigmaInterface
         }
 
         SetMenuText();
+    }
+
+    private IEnumerator QuitScene(UI_Conversation eventScript = null)
+    {
+        if (eventScript != null)
+            yield return StartCoroutine(eventScript.PrintScript());
+
+        UI_Conversation quitScript = GameManager.UI.ShowPopup<UI_Conversation>();
+
+        if (!GameManager.OutGameData.Data.IsVisitSacrifice)
+        {
+            GameManager.OutGameData.Data.IsVisitSacrifice = true;
+            quitScript.Init(GameManager.Data.ScriptData["Sacrifice_Exit_First"], false);
+        }
+        else
+        {
+            int questLevel = (int)(GameManager.OutGameData.Data.SacrificeCorruptValue / (_corruptionValue / 4));
+            if (questLevel >= 4)
+            {
+                if (GameManager.OutGameData.Data.IsSacrificeCorrupt)
+                {
+                    questLevel = 4;
+                }
+                else
+                {
+                    questLevel = 3;
+                }
+            }
+
+            quitScript.Init(GameManager.Data.ScriptData[$"Sacrifice_Exit_{25 * questLevel}_{Random.Range(0, exitDialogNums[questLevel])}"], false);
+        }
+
+        yield return StartCoroutine(quitScript.PrintScript());
+        GameManager.Data.Map.SetCurrentTileClear();
+        GameManager.SaveManager.SaveGame();
+        GameManager.OutGameData.SaveData();
+        SceneChanger.SceneChange("StageSelectScene");
     }
 
     //사도 연성 버튼 클릭
@@ -371,32 +428,6 @@ public class HarlotSceneController : MonoBehaviour, StigmaInterface
     {
         GameManager.Sound.Play("UI/UISFX/UIButtonSFX");
         StartCoroutine(QuitScene());
-    }
-
-    private IEnumerator QuitScene(UI_Conversation eventScript = null)
-    {
-        if (eventScript != null)
-            yield return StartCoroutine(eventScript.PrintScript());
-
-        UI_Conversation quitScript = GameManager.UI.ShowPopup<UI_Conversation>();
-
-        if (!GameManager.OutGameData.Data.IsVisitSacrifice)
-        {
-            GameManager.OutGameData.Data.IsVisitSacrifice = true;
-            quitScript.Init(GameManager.Data.ScriptData["탕녀_퇴장_최초"], false);
-        }
-        else 
-        {
-            int questLevel = (int)(GameManager.OutGameData.Data.SacrificeCorruptValue / 12.5f);
-            if (questLevel > 4) questLevel = 4;
-            quitScript.Init(GameManager.Data.ScriptData[$"탕녀_퇴장_{25 * questLevel}_랜덤코드:{Random.Range(0, exitDialogNums[questLevel])}"], false);
-        }
-        
-        yield return StartCoroutine(quitScript.PrintScript());
-        GameManager.Data.Map.SetCurrentTileClear();
-        GameManager.SaveManager.SaveGame();
-        GameManager.OutGameData.SaveData();
-        SceneChanger.SceneChange("StageSelectScene");
     }
 
     private void SetMenuText()
