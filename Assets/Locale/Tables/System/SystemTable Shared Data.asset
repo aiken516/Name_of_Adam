@@ -163,6 +163,10 @@ MonoBehaviour:
     m_Key: CanStartWithZeroUnitInfo
     m_Metadata:
       m_Items: []
+  - m_Id: 92297732623060992
+    m_Key: CorfirmEliteReward
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

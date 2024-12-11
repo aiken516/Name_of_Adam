@@ -227,6 +227,10 @@ MonoBehaviour:
     m_Localized: Cannot start because there are no units selected.
     m_Metadata:
       m_Items: []
+  - m_Id: 92297732623060992
+    m_Localized: Would you like to choose this unit?
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
