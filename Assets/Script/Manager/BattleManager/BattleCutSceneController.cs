@@ -129,9 +129,11 @@ public class BattleCutSceneController : MonoBehaviour
                 unit.AnimatorSetBool("isHit", false);
         }
 
-        yield return new WaitUntil(() => CSData.AttackUnit.AnimatorIsMotionEnd());
+        yield return new WaitUntil(() => CSData.AttackUnit == null || CSData.AttackUnit.AnimatorIsMotionEnd());
 
-        CSData.AttackUnit.AnimatorSetBool("isAttack", false);
+        if (CSData.AttackUnit != null)
+            CSData.AttackUnit.AnimatorSetBool("isAttack", false);
+        
         BattleManager.Instance.ActiveTimingCheck(ActiveTiming.ATTACK_MOTION_END, CSData.AttackUnit);
     }
 
@@ -165,14 +167,18 @@ public class BattleCutSceneController : MonoBehaviour
 
         StartCoroutine(_cameraHandler.CameraMove(_cameraHandler.GetMainPosition(), ZoomTime));
         StartCoroutine(_cameraHandler.CameraZoom(_cameraHandler.GetMainFieldOfView(), ZoomTime));
-        StartCoroutine(CSData.AttackUnit.CutSceneMove(BattleManager.Field.GetTilePosition(CSData.AttackUnit.Location), ZoomTime));
+
+        if (CSData.AttackUnit != null)
+            StartCoroutine(CSData.AttackUnit.CutSceneMove(BattleManager.Field.GetTilePosition(CSData.AttackUnit.Location), ZoomTime));
 
         yield return new WaitForSeconds(ZoomTime);
     }
 
     private void SetUnitRayer(BattleUnit AttackUnit, List<BattleUnit> HitUnits, int rayer)
     {
-        AttackUnit.UnitRenderer.sortingOrder = rayer;
+        if (AttackUnit != null)
+            AttackUnit.UnitRenderer.sortingOrder = rayer;
+
         foreach (BattleUnit unit in HitUnits)
         {
             if (unit != null)
